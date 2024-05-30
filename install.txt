@@ -1,0 +1,36 @@
+kubernetes error
+
+solve=sudo nano /etc/apt/sources.list   #the line
+
+
+
+   65  sudo apt-get purge kubelet kubeadm kubectl
+   66  sudo apt-get purge docker.io
+   67  sudo apt autoremove  docker.io
+   68  sudo rm -rf /etc/kubernetes
+   69  sudo rm -rf /var/lib/kubelet
+   70  sudo rm -rf $HOME/.kube
+   71  sudo rm -rf /usr/bin/kubeadm /usr/bin/kubectl /usr/bin/kubelet
+   72  sudo rm -rf /etc/kubernetes /var/lib/kubelet /etc/cni
+   73  sudo pkill kubelet
+   74  sudo apt-get update
+   75  sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+   76  curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+   77  echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   78  sudo apt-get update
+   79  sudo apt-get install -y kubelet kubeadm kubectl
+   80  sudo apt-mark hold kubelet kubeadm kubectl
+   81  kubeadm join 10.1.149.63:6443 --token goqbr2.qbddo4gbkkej120o --discovery-token-ca-cert-hash sha256:37d5d06734da71cfe0f46356e3e743f14f05aefa1fc862779c5a59c23bc19694
+   82  sudo kubeadm join 10.1.149.63:6443 --token goqbr2.qbddo4gbkkej120o --discovery-token-ca-cert-hash sha256:37d5d06734da71cfe0f46356e3e743f14f05aefa1fc862779c5a59c23bc19694
+   83  ssudo systemctl status kubelet
+   84  sudo systemctl status kubelet
+   85  sudo systemctl status docker
+   86  ls /etc/cni/net.d/
+   87  docker
+   88  sudo systemctl status docker
+   89  sudo systemctl daemon-reload
+   90  sudo systemctl status docker
+   91  docker
+   92  sudo apt  install docker.io
+   93  docker
+   94  history
